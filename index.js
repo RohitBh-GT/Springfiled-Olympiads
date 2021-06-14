@@ -14,7 +14,8 @@ app.get('/',(req,res)=>{
 });
 
 app.get('/find',(req,res)=>{
-    const givenNumber = req.query.imei;
+    var givenNumber = req.query.imei;
+    givenNumber = givenNumber.trim();
     var ans = '';
     if(givenNumber.length !== 15){
         ans+='Length of IMEI should be 15 digits';
@@ -35,7 +36,6 @@ app.get('/find',(req,res)=>{
             lastNumber=lastNumber.toString();
             var isValid = imei.isValid(lastNumber);
             if(isValid){
-                console.log('came');
                 ans+='Given IMEI number does not exists.Replace '+lastDigit+' by '+i+' to get correct IMEI number.';
                 break;
             }

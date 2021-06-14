@@ -1,0 +1,19 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="searchHeading">
+        <h4 class="searchHeading">Search IMEI number here</h4>
+    </div>
+    <div>
+        <form method="GET" action="/find">
+            <input type="text" placeholder="Enter 15 digit IMEI number" value="<%= val %>" class="inputSearch" name="imei"
+                autocomplete="on" required></input>
+            <button class="checkButton" type="submit">Check</button>
+        </form>
+    </div>
+    <div>
+        <h4 class="result-section"><%= result %></h4>
+    </div>
+
+
+
+    <%- include("partials/footer.ejs") %>
